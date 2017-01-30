@@ -1,22 +1,23 @@
 package org.sameperson.rest;
 
-import javax.inject.Singleton;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
-@Path("test")
-@Singleton
+@Path("{pathParam}/test")
 public class MyResource {
 
     private int count;
+    @PathParam("pathParam")
+    private String pathParam;
+    @QueryParam("query")
+    private String queryParam;
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String testMethod() {
         count++;
-        return "Method was called " + count + " time(s)";
+        return "Path param used: " + pathParam + " and query param: " + queryParam;
     }
 
 }

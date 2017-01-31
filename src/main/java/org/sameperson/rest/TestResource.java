@@ -11,7 +11,7 @@ import java.util.Date;
 public class TestResource {
 
     @GET
-    @Produces(MediaType.TEXT_PLAIN)
+    @Produces("text/shortDate")
     public Date testMethod(){
         return Calendar.getInstance().getTime();
     }
